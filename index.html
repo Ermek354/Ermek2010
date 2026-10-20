@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Өзүм жөнүндө сайт</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ЖАРВИС СТИЛИНДЕГИ ЭРМА БОТУНУН АНИМАЦИЯСЫ -->
+    <div id="ermaAssistant" class="erma-container">
+        <div class="erma-core">
+            <div class="erma-ring ring-1"></div>
+            <div class="erma-ring ring-2"></div>
+            <div class="erma-ring ring-3"></div>
+            <div class="erma-center"><i class="fas fa-microchip"></i></div>
+        </div>
+        <div class="erma-info">
+            <span class="erma-title">ERMA AI</span>
+            <span id="ermaStatus" class="erma-status">Система даяр...</span>
+        </div>
+    </div>
+
+    <!-- Кирүү модалдык терезеси -->
+    <div id="loginModal" class="login-modal-overlay">
+        <div class="login-box">
+            <h2 id="modalTitle">Системага кирүү</h2>
+            <input type="text" id="username" placeholder="Атыңыз">
+            <input type="password" id="password" placeholder="Пароль">
+            <button onclick="login()" id="loginBtn">Кирүү</button>
+            <p id="error-msg" class="error"></p>
+        </div>
+    </div>
+
+    <!-- Башкаруу баскычтары -->
+    <div class="F1">
+        <button class="C1-btn" onclick="toggleLanguage()" id="langBtn" title="Тилди өзгөртүү">RU</button>
+        <button class="C1-btn" onclick="toggleTheme()" id="themeBtn" title="Теманы өзгөртүү">🌙</button>
+        <button class="C1-btn" onclick="toggleMusic()" id="musicBtn" title="Музыканы башкаруу">🔊</button>
+    </div>
+
+    <audio id="bgMusic" loop src="./Музыка/kulakovka-no-copyright-music-270241.mp3"></audio>
+
+    <!-- ! 1-бет: Меню -->
+    <div class="E1">
+        <div class="B1">
+            <a href="#about"><button class="btn1" data-key="btnAbout">О себе</button></a>
+            <a href="#skills"><button class="btn1" data-key="btnSkills">Мои знания</button></a>
+            <a href="#contacts"><button class="btn1" data-key="btnContacts">Контакты</button></a>
+        </div>
+        <div id="welcomeMessage" class="welcome-text"></div>
+    </div>
+
+    <!-- ! 2-бет: Мой сайт жана Сүрөт -->
+    <div class="E2" data-aos="fade-up" data-aos-duration="3000">
+        <h1 data-key="siteTitle">Мой сайт</h1>
+        <img src="./Сурот/1.jpg" alt="Сурот бар" id="A1">
+    </div>
+
+    <!-- ! 3-бет: О себе -->
+    <div class="E3" id="about">
+        <h2 data-key="aboutTitle">О себе</h2>
+        <p data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-key="aboutText">
+            Меня зовут Эрмек. Я родился в 2010 году. Больше всего меня интересует сфера информационных технологий (IT). Мне также нравится заниматься дизайном, изучать новые технологии, создавать что-то новое и постоянно развиваться. Особенно люблю изучать языки программирования и работать над собственными проектами. Также я хочу выучить английский язык, так как он очень важен для программистов и открывает больше возможностей для развития и работы.
+            В свободное время я увлекаюсь спортом, особенно футболом и боксом. Моя цель — стать Junior Frontend-разработчиком, а в будущем вырасти до уровня Middle Developer. Также я хочу поступить в Университет Манас и набрать более 200 баллов на ОРТ. Я уверен, что благодаря упорству, постоянному обучению и практике смогу достичь своих целей.
+
+            
+        </p>
+    </div>
+
+    <!-- ! 4-бет: Мои знания -->
+    <header id="T1">
+        <div class="E4" id="skills">
+            <h2 data-key="skillsTitle">Мои знания</h2>
+            <div class="R1">
+                <span class="js">JavaScript</span>
+                <span class="dom">Dom</span>
+                <span class="html">HTML</span>
+                <span class="css">CSS</span>
+                <span class="github">Github</span>
+                <span class="figma">Figma</span>
+                <span class="react">React</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ! 5-бет: Контакты -->
+    <div class="E5" id="contacts" data-aos="fade-up">
+        <h2 data-key="contactTitle">Контакты</h2>
+        <div class="social-links">
+            <a href="https://t.me/your_telegram" target="_blank" class="social-btn telegram"><i class="fab fa-telegram-plane"></i> Telegram</a>
+            <a href="https://wa.me/996999889776" target="_blank" class="social-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://github.com/your_github" target="_blank" class="social-btn github-btn"><i class="fab fa-github"></i> GitHub</a>
+            <a href="mailto:your_email@gmail.com" class="social-btn email"><i class="fas fa-envelope"></i> Email</a>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./script.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

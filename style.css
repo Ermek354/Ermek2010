@@ -1,0 +1,520 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-image: url('./Сурот/1.jpg'); 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-size: cover; 
+    background-attachment: fixed; 
+    transition: all 0.6s ease;
+    cursor: url('https://cur.cursors-4u.net/user/use-1/use153.cur'), auto;
+}
+
+button, a {
+    cursor: pointer;
+}
+
+/* ==========================================
+   ЖАРВИС ТҮРҮНДӨГҮ "ЭРМА" БОТ СТИЛИ ЖАНА АНИМАЦИЯСЫ
+   ========================================== */
+.erma-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(56, 189, 248, 0.5);
+    padding: 10px 20px;
+    border-radius: 40px;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+    z-index: 9999;
+    transition: all 0.5s ease;
+}
+
+.erma-core {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.erma-center {
+    color: #38bdf8;
+    font-size: 18px;
+    text-shadow: 0 0 10px #38bdf8;
+    z-index: 2;
+}
+
+.erma-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid transparent;
+}
+
+.ring-1 {
+    width: 45px;
+    height: 45px;
+    border-top-color: #38bdf8;
+    border-bottom-color: #38bdf8;
+    animation: ermaSpin 2s infinite linear;
+}
+
+.ring-2 {
+    width: 35px;
+    height: 35px;
+    border-left-color: #f4c264;
+    border-right-color: #f4c264;
+    animation: ermaSpinReverse 1.5s infinite linear;
+}
+
+.ring-3 {
+    width: 25px;
+    height: 25px;
+    border-top-color: #38bdf8;
+    animation: ermaPulse 1s infinite ease-in-out;
+}
+
+@keyframes ermaSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes ermaSpinReverse {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+}
+
+@keyframes ermaPulse {
+    0% { transform: scale(0.8); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(0.8); opacity: 0.5; }
+}
+
+/*! Бото сүйлөп жаткандагы анимация эффектиси */
+.erma-container.speaking {
+    border-color: #f4c264;
+    box-shadow: 0 0 30px rgba(244, 194, 100, 0.8);
+}
+
+.erma-container.speaking .ring-1 {
+    animation-duration: 0.5s;
+    border-top-color: #f4c264;
+}
+
+.erma-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.erma-title {
+    color: #38bdf8;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    font-family: monospace;
+}
+
+.erma-status {
+    color: #cbd5e1;
+    font-size: 12px;
+    font-family: sans-serif;
+}
+
+/*! 1-бет: Шапка */
+.E1 {
+    background-color: rgba(26, 29, 46, 0.92);
+    backdrop-filter: blur(10px);
+    min-height: 120px;
+    border-top: 4px solid #fcfbfa;
+    border-bottom: 4px solid #fcfbfa;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px 0 250px; /* Эрма ботунун жанына туура келүү үчүн солдон ачылды */
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+.B1 {
+    display: flex; 
+    align-items: center; 
+    gap: 20px;
+}
+
+.B1 button {
+    background: rgb(255, 255, 255);
+    height: 55px;  
+    border-radius: 12px;  
+    font-weight: 600; 
+    width: 150px;  
+    font-size: 19px; 
+    font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+    border: none;  
+    transition: all 0.3s ease;
+    color: rgba(26, 29, 46, 1);
+}
+
+.B1 button:hover {
+    background: rgb(189, 162, 115);
+    transform: translateY(-3px) scale(1.02);
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(189, 162, 115, 0.4);
+}
+
+.welcome-text {
+    color: #f4c264;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: right;
+    transition: color 0.5s ease;
+}
+
+/*! ТОГОЛОК БАСКЫЧТАР */
+.F1 {
+    position: fixed;
+    right: 25px;
+    bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 9999;
+}
+
+.C1-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #f4c264;
+    color: #1a1d2e;
+    border: 2px solid #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.C1-btn:hover {
+    transform: scale(1.15) rotate(5deg);
+    background-color: #ffffff;
+    color: #1a1d2e;
+    box-shadow: 0 8px 25px rgba(244, 194, 100, 0.7);
+}
+
+/*! 2-бет */
+
+.E2 {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;  
+    margin-top: 50px;
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes textGlow {
+    0% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.2); }
+    50% { text-shadow: 0 0 25px rgba(244, 194, 100, 0.9), 0 0 40px rgba(255, 255, 255, 0.6); }
+    100% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.2); }
+}
+
+.E2 h1 {
+    font-family: 'Caveat', cursive;
+    color: #ffffff;
+    font-size: 140px;
+    font-weight: 400;
+    margin-right: 30px;
+    transition: color 0.5s ease;
+    animation: textGlow 3s infinite ease-in-out;
+}
+
+@keyframes floatImage {
+    0% { transform: translateY(0px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); }
+    50% { transform: translateY(-18px); box-shadow: 0 25px 45px rgba(244, 194, 100, 0.4); }
+    100% { transform: translateY(0px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); }
+}
+
+#A1 {
+    width: 550px;           
+    height: 650px;          
+    object-fit: cover;      
+    border-radius: 16px;
+    animation: floatImage 4s infinite ease-in-out;
+    transition: transform 0.4s ease;
+}
+
+#A1:hover {
+    transform: scale(1.03);
+}
+
+/*! ФОНДУН КЫЙМЫЛЫ */
+@keyframes smoothBgMove {
+    0% { background-position: 50% 0%; background-size: 100% auto; }
+    50% { background-position: 50% 100%; background-size: 112% auto; }
+    100% { background-position: 50% 0%; background-size: 100% auto; }
+}
+
+/*! 3-бет */
+
+.E3 {
+    text-align: center;
+    padding: 90px 40px;
+    position: relative;
+    z-index: 1;
+    margin-top: 40px;
+    background-image: url('./Сурот/2.jpg');
+    background-size: cover;
+    border-top: 4px solid #fcfbfa;
+    border-bottom: 4px solid #fefefd;
+    transition: all 0.5s ease;
+    animation: smoothBgMove 16s infinite alternate ease-in-out;
+}
+
+.E3 h2 {
+    font-family: 'Caveat', cursive;
+    font-size: 85px;
+    color: #ffffff;
+    transition: color 0.5s ease;
+}
+
+.E3 p {
+    font-size: 19px;
+    line-height: 1.8;
+    max-width: 850px;
+    margin: 20px auto 0 auto;
+    color: #d1c7bd;
+    transition: color 0.5s ease;
+}
+
+/*! 4-бет */
+#T1 {
+    background-image: url('./Сурот/ФОН\ 2.png');
+    background-size: cover;
+    background-position: center;
+    padding: 60px 0;
+    transition: background 0.5s ease;
+}
+
+.E4 {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.E4 h2 {
+    font-family: 'Caveat', cursive;
+    font-size: 85px;
+    margin-bottom: 35px;
+    color: #ffffff;
+    transition: color 0.5s ease;
+}
+
+.R1 {
+    max-width: 650px; 
+    margin: 0 auto;
+    padding: 40px 30px; 
+    border-radius: 24px;  
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center;  
+    align-items: center; 
+    gap: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    background-color: rgba(26, 29, 46, 1);
+    border-top: 6px solid #fcfbfa;
+    border-bottom: 3px solid #fefefd;
+    transition: background-color 0.5s ease;
+}
+
+@keyframes colorChange {
+    0% { color: #f0ad4e; transform: scale(1); }
+    20% { color: #a569bd; }
+    40% { color: #e67e22; transform: scale(1.08); }
+    60% { color: #3498db; }
+    80% { color: #00d8ff; }
+    100% { color: #f0ad4e; transform: scale(1); }
+}
+
+.R1 span {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    animation: colorChange 4s infinite linear; 
+    transition: all 0.3s ease;
+}
+
+.R1 .js     { animation-delay: 0s; }
+.R1 .dom    { animation-delay: 0.5s; }
+.R1 .html   { animation-delay: 1s; }
+.R1 .css    { animation-delay: 1.5s; }
+.R1 .github { animation-delay: 2s; }
+.R1 .figma  { animation-delay: 2.5s; }
+.R1 .react  { animation-delay: 3s; }
+
+/*! 5-бет */
+.E5 {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: rgba(26, 29, 46, 0.95);
+    border-top: 4px solid #fcfbfa;
+    margin-top: 40px;
+}
+
+.E5 h2 {
+    font-family: 'Caveat', cursive;
+    font-size: 70px;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.social-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(255,255,255,0.2);
+}
+
+.telegram { background-color: #0088cc; }
+.whatsapp { background-color: #25D366; }
+.github-btn { background-color: #333; }
+.email { background-color: #ea4335; }
+
+
+
+/*! Кирүү терезеси */
+.login-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 10000;
+}
+
+.login-box {
+    background-color: rgba(38, 27, 35, 0.95);
+    padding: 40px; border-radius: 16px; border: 2px solid #f4c264;
+    text-align: center; box-shadow: 0 0 25px rgba(244, 194, 100, 0.4);
+    width: 320px;
+}
+
+.login-box h2 { font-family: sans-serif; margin-bottom: 20px; color: #f4c264; }
+.login-box input {
+    width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px;
+    border: 1px solid #f4c264; background: #1a1a1a; color: white; font-size: 16px; outline: none;
+}
+.login-box button {
+    width: 100%; padding: 12px; background-color: #f4c264; border: none;
+    border-radius: 8px; font-weight: bold; font-size: 18px; transition: 0.3s; margin-top: 10px;
+}
+.login-box button:hover { background-color: #d4a244; }
+.error { color: #ff5555; margin-top: 12px; font-size: 14px; }
+
+/* СТИЛЬДҮҮ КАРА ТЕМА */
+@keyframes darkGlowMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body.dark-theme {
+    background-image: none !important;
+    background: linear-gradient(-45deg, #090a0f, #121829, #1a102f, #0d1b2a) !important;
+    background-size: 300% 300% !important;
+    animation: darkGlowMove 10s ease infinite !important;
+    color: #f1f5f9 !important;
+}
+
+body.dark-theme .E1,
+body.dark-theme .E5 {
+    background: rgba(15, 23, 42, 0.75) !important;
+    backdrop-filter: blur(15px) !important;
+    border-color: rgba(56, 189, 248, 0.3) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5) !important;
+}
+
+body.dark-theme .B1 button {
+    background: rgba(30, 41, 59, 0.8) !important;
+    color: #38bdf8 !important;
+    border: 1px solid rgba(56, 189, 248, 0.4) !important;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.2) !important;
+}
+
+body.dark-theme .B1 button:hover {
+    background: #38bdf8 !important;
+    color: #0f172a !important;
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.8) !important;
+}
+
+body.dark-theme .welcome-text,
+body.dark-theme .E2 h1,
+body.dark-theme .E3 h2,
+body.dark-theme .E4 h2,
+body.dark-theme .E5 h2 {
+    color: #38bdf8 !important;
+    text-shadow: 0 0 20px rgba(56, 189, 248, 0.6) !important;
+}
+
+body.dark-theme .E3 {
+    background-image: none !important;
+    background: rgba(15, 23, 42, 0.65) !important;
+    backdrop-filter: blur(12px) !important;
+    border-color: rgba(56, 189, 248, 0.2) !important;
+}
+
+body.dark-theme .E3 p { color: #e2e8f0 !important; }
+
+body.dark-theme #T1 {
+    background-image: none !important;
+    background: transparent !important;
+}
+
+body.dark-theme .R1 {
+    background: rgba(15, 23, 42, 0.8) !important;
+    backdrop-filter: blur(15px) !important;
+    border-color: rgba(56, 189, 248, 0.3) !important;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.8), 0 0 15px rgba(56, 189, 248, 0.2) !important;
+}
+
+body.dark-theme .circle-btn {
+    background: rgba(30, 41, 59, 0.9) !important;
+    color: #38bdf8 !important;
+    border-color: #38bdf8 !important;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.4) !important;
+}
+
+body.dark-theme .circle-btn:hover {
+    background: #38bdf8 !important;
+    color: #0f172a !important;
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.9) !important;
+}
